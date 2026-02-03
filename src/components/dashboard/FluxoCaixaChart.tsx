@@ -64,7 +64,7 @@ export function FluxoCaixaChart({ data }: FluxoCaixaChartProps) {
                                     boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                                 }}
                                 labelStyle={{ fontWeight: 600, marginBottom: 8 }}
-                                formatter={(value: number) => [formatCurrency(value), '']}
+                                formatter={(value) => [formatCurrency(value as number), '']}
                             />
                             <Legend
                                 wrapperStyle={{ paddingTop: 20 }}
