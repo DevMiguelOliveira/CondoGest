@@ -56,7 +56,7 @@ export function DespesaCategoriaChart({ data }: DespesaCategoriaChartProps) {
                                     borderRadius: '12px',
                                     boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
                                 }}
-                                formatter={(value: number) => formatCurrency(value)}
+                                formatter={(value) => formatCurrency(value as number)}
                             />
                             <Legend
                                 layout="vertical"
