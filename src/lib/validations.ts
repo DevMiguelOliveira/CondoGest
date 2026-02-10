@@ -96,8 +96,19 @@ export const unidadeSchema = z.object({
     numero: z.string().min(1, 'Número inválido'),
     tipo: z.enum(['apartamento', 'casa', 'sala', 'loja']),
     area: z.number().positive('Área deve ser positiva').optional(),
+    fracao_ideal: z.number().min(0, 'Fração ideal deve ser >= 0').max(1, 'Fração ideal deve ser <= 1').optional(),
     proprietario_id: z.string().uuid('Proprietário inválido').optional(),
     morador_id: z.string().uuid('Morador inválido').optional(),
+})
+
+// Rateio Schemas
+export const rateioSchema = z.object({
+    despesa_id: z.string().uuid('ID da despesa inválido'),
+    modelo: z.enum(['igualitario', 'fracao_ideal', 'valor_fixo']),
+    data_vencimento: z.string().min(1, 'Data de vencimento é obrigatória'),
+    categoria_id: z.string().uuid('ID da categoria inválido'),
+    observacoes: z.string().optional(),
+    valores_manuais: z.record(z.string(), z.number().positive('Valor deve ser positivo')).optional(),
 })
 
 // Type exports
@@ -113,3 +124,4 @@ export type ChecklistInput = z.infer<typeof checklistSchema>
 export type ComentarioInput = z.infer<typeof comentarioSchema>
 export type CondominioInput = z.infer<typeof condominioSchema>
 export type UnidadeInput = z.infer<typeof unidadeSchema>
+export type RateioInput = z.infer<typeof rateioSchema>

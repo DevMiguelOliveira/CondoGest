@@ -40,6 +40,7 @@ export interface Unidade {
     numero: string
     tipo: 'apartamento' | 'casa' | 'sala' | 'loja'
     area?: number
+    fracao_ideal?: number
     proprietario_id?: string
     morador_id?: string
     created_at: string

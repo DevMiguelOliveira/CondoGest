@@ -1,8 +1,11 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# =====================================================
+# CondoGest - .gitignore
+# Next.js + Supabase SaaS Project
+# =====================================================
 
-# dependencies
-/node_modules
-/.pnp
+# ----- Dependencies -----
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +13,59 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# ----- Build / Output -----
 /.next/
 /out/
+/build/
+/dist/
+/.vercel/
+/.turbo/
 
-# production
-/build
+# ----- Testing -----
+/coverage/
+*.lcov
 
-# misc
-.DS_Store
-*.pem
+# ----- Environment Variables -----
+# NUNCA versionar credenciais
+.env
+.env.*
+!.env.local.example
 
-# debug
+# ----- Debug Logs -----
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ----- OS Files -----
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
 
-# vercel
-.vercel
+# ----- IDEs / Editors -----
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
 
-# typescript
+# ----- TypeScript -----
 *.tsbuildinfo
 next-env.d.ts
+
+# ----- Certificates -----
+*.pem
+*.key
+*.crt
+
+# ----- Supabase Local -----
+supabase/.temp/
+supabase/.branches/
+
+# ----- Misc -----
+*.log
+.cache/
